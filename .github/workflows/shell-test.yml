@@ -1,0 +1,30 @@
+name: Shell Script Test Workflow
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  test-shell-script:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up shell
+        run: |
+          shellcheck --version || true
+      
+      - name: Run test script
+        run: |
+          chmod +x ./scripts/test-script.sh
+          ./scripts/test-script.sh
+      
+      - name: Display environment info
+        run: |
+          echo "Node version: $(node --version)"
+          echo "Git version: $(git --version)"
