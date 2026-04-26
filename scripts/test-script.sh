@@ -39,7 +39,7 @@ echo "    ✓ Test case 1 passed"
 ((TEST_PASSED++))
 
 # Simulate test 2
-echo "  - Running test case 2..."
+echo "  - Running test case 2....."
 sleep 0.5
 echo "    ✓ Test case 2 passed"
 ((TEST_PASSED++))
